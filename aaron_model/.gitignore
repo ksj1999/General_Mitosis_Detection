@@ -1,0 +1,11 @@
+data/
+checkpoints/
+logs/
+results/preds/
+results/preds_tta/
+.venv/
+__pycache__/
+*.npz
+*.npy
+*.pt
+.DS_Store
