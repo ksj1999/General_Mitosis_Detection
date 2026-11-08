@@ -9,7 +9,7 @@ paired on the same slides (case-level bootstrap; the seeds are fixed because the
 ensemble uses all of them).
 
 Usage:  python scripts/summarize_ensemble.py [--variants ...] [--modes plain tta ...]
-Output: results/ensemble_summary.csv, results/ensemble_pairwise.csv
+Output: results/{prefix}_summary.csv, results/{prefix}_pairwise.csv (default prefix: ensemble)
 """
 import argparse
 import json
@@ -32,7 +32,7 @@ def f1(y, yhat):
     return 2 * tp / denom if denom else 0.0
 
 
-def main(variants, modes, seeds):
+def main(variants, modes, seeds, prefix="ensemble"):
     rng = np.random.default_rng(9)
     rows, boot = [], {}
     for fold in FOLDS:
@@ -80,7 +80,7 @@ def main(variants, modes, seeds):
     mean_rows = summ.groupby(["variant", "mode"], sort=False).mean(numeric_only=True).reset_index()
     mean_rows.insert(0, "fold", "mean")
     summ = pd.concat([summ, mean_rows], ignore_index=True)
-    summ.to_csv(ROOT / "results" / "ensemble_summary.csv", index=False)
+    summ.to_csv(ROOT / "results" / f"{prefix}_summary.csv", index=False)
     pair = []
     for metric in ("f1", "auroc"):
         for v in variants:
@@ -94,7 +94,7 @@ def main(variants, modes, seeds):
                                  "diff_ens_minus_single": r[f"ens_{metric}"] - r[f"single_{metric}"],
                                  "ci_lo": lo, "ci_hi": hi, "significant": lo > 0 or hi < 0})
     pw = pd.DataFrame(pair)
-    pw.to_csv(ROOT / "results" / "ensemble_pairwise.csv", index=False)
+    pw.to_csv(ROOT / "results" / f"{prefix}_pairwise.csv", index=False)
     pd.set_option("display.width", 220)
     print("\n=== seed ensemble vs average single model, mean of 3 folds ===")
     print(summ[summ.fold == "mean"].drop(columns="fold").round(3).to_string(index=False))
@@ -107,5 +107,6 @@ if __name__ == "__main__":
     ap.add_argument("--variants", nargs="+", default=["baseline", "stain", "stain_adv", "stain_mix"])
     ap.add_argument("--modes", nargs="+", default=["plain", "tta"])
     ap.add_argument("--seeds", type=int, nargs="+", default=[0, 1, 2])
+    ap.add_argument("--prefix", default="ensemble", help="output stem: results/{prefix}_summary.csv / _pairwise.csv")
     a = ap.parse_args()
-    main(a.variants, a.modes, a.seeds)
+    main(a.variants, a.modes, a.seeds, a.prefix)

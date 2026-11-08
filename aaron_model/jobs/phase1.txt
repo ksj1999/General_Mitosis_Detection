@@ -1,0 +1,94 @@
+# phase 1a: stain-augmentation variants (on +Stain)
+stain_s002 CS2 0 --variant stain --sigma 0.02
+stain_s002 S360 0 --variant stain --sigma 0.02
+stain_s002 XR 0 --variant stain --sigma 0.02
+stain_s002 CS2 1 --variant stain --sigma 0.02
+stain_s002 S360 1 --variant stain --sigma 0.02
+stain_s002 XR 1 --variant stain --sigma 0.02
+stain_s002 CS2 2 --variant stain --sigma 0.02
+stain_s002 S360 2 --variant stain --sigma 0.02
+stain_s002 XR 2 --variant stain --sigma 0.02
+stain_s010 CS2 0 --variant stain --sigma 0.10
+stain_s010 S360 0 --variant stain --sigma 0.10
+stain_s010 XR 0 --variant stain --sigma 0.10
+stain_s010 CS2 1 --variant stain --sigma 0.10
+stain_s010 S360 1 --variant stain --sigma 0.10
+stain_s010 XR 1 --variant stain --sigma 0.10
+stain_s010 CS2 2 --variant stain --sigma 0.10
+stain_s010 S360 2 --variant stain --sigma 0.10
+stain_s010 XR 2 --variant stain --sigma 0.10
+stain_he CS2 0 --variant stain --stain-mode he_only
+stain_he S360 0 --variant stain --stain-mode he_only
+stain_he XR 0 --variant stain --stain-mode he_only
+stain_he CS2 1 --variant stain --stain-mode he_only
+stain_he S360 1 --variant stain --stain-mode he_only
+stain_he XR 1 --variant stain --stain-mode he_only
+stain_he CS2 2 --variant stain --stain-mode he_only
+stain_he S360 2 --variant stain --stain-mode he_only
+stain_he XR 2 --variant stain --stain-mode he_only
+stain_scale02 CS2 0 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 S360 0 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 XR 0 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 CS2 1 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 S360 1 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 XR 1 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 CS2 2 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 S360 2 --variant stain --stain-mode scale_only --sigma 0.2
+stain_scale02 XR 2 --variant stain --stain-mode scale_only --sigma 0.2
+# phase 1b: EMA and soft labels
+stain_ema CS2 0 --variant stain --ema 0.995
+stain_ema S360 0 --variant stain --ema 0.995
+stain_ema XR 0 --variant stain --ema 0.995
+stain_ema CS2 1 --variant stain --ema 0.995
+stain_ema S360 1 --variant stain --ema 0.995
+stain_ema XR 1 --variant stain --ema 0.995
+stain_ema CS2 2 --variant stain --ema 0.995
+stain_ema S360 2 --variant stain --ema 0.995
+stain_ema XR 2 --variant stain --ema 0.995
+stain_soft CS2 0 --variant stain --soft-labels
+stain_soft S360 0 --variant stain --soft-labels
+stain_soft XR 0 --variant stain --soft-labels
+stain_soft CS2 1 --variant stain --soft-labels
+stain_soft S360 1 --variant stain --soft-labels
+stain_soft XR 1 --variant stain --soft-labels
+stain_soft CS2 2 --variant stain --soft-labels
+stain_soft S360 2 --variant stain --soft-labels
+stain_soft XR 2 --variant stain --soft-labels
+# phase 1c: Macenko
+macenko CS2 0 --variant baseline --patches data/patches_128_macenko.npz
+macenko S360 0 --variant baseline --patches data/patches_128_macenko.npz
+macenko XR 0 --variant baseline --patches data/patches_128_macenko.npz
+macenko CS2 1 --variant baseline --patches data/patches_128_macenko.npz
+macenko S360 1 --variant baseline --patches data/patches_128_macenko.npz
+macenko XR 1 --variant baseline --patches data/patches_128_macenko.npz
+macenko CS2 2 --variant baseline --patches data/patches_128_macenko.npz
+macenko S360 2 --variant baseline --patches data/patches_128_macenko.npz
+macenko XR 2 --variant baseline --patches data/patches_128_macenko.npz
+macenko_stain CS2 0 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain S360 0 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain XR 0 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain CS2 1 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain S360 1 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain XR 1 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain CS2 2 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain S360 2 --variant stain --patches data/patches_128_macenko.npz
+macenko_stain XR 2 --variant stain --patches data/patches_128_macenko.npz
+# phase 1d: UDA-DANN (cross-fitted halves)
+stain_uda_A CS2 0 --variant stain_adv --uda-half A
+stain_uda_A S360 0 --variant stain_adv --uda-half A
+stain_uda_A XR 0 --variant stain_adv --uda-half A
+stain_uda_A CS2 1 --variant stain_adv --uda-half A
+stain_uda_A S360 1 --variant stain_adv --uda-half A
+stain_uda_A XR 1 --variant stain_adv --uda-half A
+stain_uda_A CS2 2 --variant stain_adv --uda-half A
+stain_uda_A S360 2 --variant stain_adv --uda-half A
+stain_uda_A XR 2 --variant stain_adv --uda-half A
+stain_uda_B CS2 0 --variant stain_adv --uda-half B
+stain_uda_B S360 0 --variant stain_adv --uda-half B
+stain_uda_B XR 0 --variant stain_adv --uda-half B
+stain_uda_B CS2 1 --variant stain_adv --uda-half B
+stain_uda_B S360 1 --variant stain_adv --uda-half B
+stain_uda_B XR 1 --variant stain_adv --uda-half B
+stain_uda_B CS2 2 --variant stain_adv --uda-half B
+stain_uda_B S360 2 --variant stain_adv --uda-half B
+stain_uda_B XR 2 --variant stain_adv --uda-half B

@@ -1,0 +1,136 @@
+{
+  "rule": "ADDONS_PROTOCOL.md selection rule (source-val F1, 3 folds x seeds 0-2)",
+  "val_f1_auroc": {
+    "stain": {
+      "val_f1": 0.7955884181890365,
+      "val_auroc": 0.879957916269088
+    },
+    "stain_s002": {
+      "val_f1": 0.7934581425745469,
+      "val_auroc": 0.8757681771969261
+    },
+    "stain_s010": {
+      "val_f1": 0.7918770239352555,
+      "val_auroc": 0.8805455472699598
+    },
+    "stain_he": {
+      "val_f1": 0.7962318003848089,
+      "val_auroc": 0.882002071469658
+    },
+    "stain_scale02": {
+      "val_f1": 0.7691490466350044,
+      "val_auroc": 0.8598960984226388
+    },
+    "stain_ema": {
+      "val_f1": 0.7880366054221395,
+      "val_auroc": 0.8751485424577514
+    },
+    "stain_soft": {
+      "val_f1": 0.8049573735904325,
+      "val_auroc": 0.8848176851289021
+    },
+    "macenko_stain": {
+      "val_f1": 0.7837462881463417,
+      "val_auroc": 0.8720698086344456
+    }
+  },
+  "stain_config": "stain_he",
+  "keep": {
+    "ema": false,
+    "soft": true,
+    "macenko": false
+  },
+  "all_config": {
+    "variant": "stain_adv",
+    "stain_mode": "he_only",
+    "sigma": 0.05,
+    "ema": 0.0,
+    "soft_labels": true,
+    "patches": "data/patches_128.npz"
+  },
+  "tags": {
+    "all": "all",
+    "all_no_stain": "all_no_stain",
+    "all_no_grl": "all_no_grl",
+    "all_stain_default": "all_stain_default",
+    "all_no_soft": "all_no_soft",
+    "baseline": "baseline",
+    "stain": "stain",
+    "adv": "adv",
+    "stain_adv": "stain_adv"
+  },
+  "configs": {
+    "all": {
+      "variant": "stain_adv",
+      "stain_mode": "he_only",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": true,
+      "patches": "data/patches_128.npz"
+    },
+    "all_no_stain": {
+      "variant": "adv",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": true,
+      "patches": "data/patches_128.npz"
+    },
+    "all_no_grl": {
+      "variant": "stain",
+      "stain_mode": "he_only",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": true,
+      "patches": "data/patches_128.npz"
+    },
+    "all_stain_default": {
+      "variant": "stain_adv",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": true,
+      "patches": "data/patches_128.npz"
+    },
+    "all_no_soft": {
+      "variant": "stain_adv",
+      "stain_mode": "he_only",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": false,
+      "patches": "data/patches_128.npz"
+    },
+    "baseline": {
+      "variant": "baseline",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": false,
+      "patches": "data/patches_128.npz"
+    },
+    "stain": {
+      "variant": "stain",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": false,
+      "patches": "data/patches_128.npz"
+    },
+    "adv": {
+      "variant": "adv",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": false,
+      "patches": "data/patches_128.npz"
+    },
+    "stain_adv": {
+      "variant": "stain_adv",
+      "stain_mode": "both",
+      "sigma": 0.05,
+      "ema": 0.0,
+      "soft_labels": false,
+      "patches": "data/patches_128.npz"
+    }
+  }
+}
