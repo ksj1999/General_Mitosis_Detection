@@ -63,12 +63,14 @@ Main exploratory findings (unadjusted CIs):
   F1 −0.178, precision 0.42 at recall 0.998. UDA-DANN, which aligns to the target scanner during
   training, is no better than AdaBN.
 
-Full write-up: `Aaron_Method_Report` (8 November 2026). It is not in this repo.
+Plain-language summary of these results: [`RESULTS.md`](RESULTS.md) ([PDF](RESULTS.pdf)).
+The full methods write-up (`Aaron_Method_Report`, 8 November 2026) is not in this repo.
 
 ## Layout
 
 ```
 ADDONS_PROTOCOL.md  pre-registered protocol of the add-on study (+ amendment)
+RESULTS.md / .pdf   plain-language summary of the results
 scripts/            code (paths are relative to this folder)
 jobs/               job lists and the phase-1 / phase-2 / figure pipelines
 results/            summary tables (CSV + markdown)
