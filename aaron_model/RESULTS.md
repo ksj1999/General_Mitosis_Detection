@@ -2,7 +2,6 @@
 
 *CSE 4109 · AI for Health · Aaron's part (8 November 2026)*
 
-> **In one sentence:** On the unseen scanner, ResNet all raises F1 from 0.673 for the baseline to **0.766** (+0.093, statistically significant). About half of the gain comes from the test-time steps (TTA + AdaBN). Once test-time adaptation is applied, the training-time add-ons add much less than they seem to under plain inference.
 
 # 1. The question
 
@@ -92,28 +91,5 @@ Each test removes one component from ResNet all and measures the drop in F1. The
   - The ResNet all ensemble reaches F1 0.785 and AUROC 0.908 at AdaBN + TTA, and F1 0.754 as trained.
   - Ensembles were not in the pre-registered protocol, so they are described but not tested.
 
-# 6. Comparing with Axel's and Jun's results
-
-- **AdaBN needs BatchNorm.** Optimus and most foundation models are ViTs with LayerNorm, so AdaBN largely does not apply to them.
-- **Compare in the same inference mode.** Their models should be compared with the ResNet "as trained" column (ResNet all 0.733) or the "+ TTA" column (0.745), not with 0.766.
-- **Report AdaBN separately.** It uses unlabelled test-scanner images, so it is test-time adaptation, not pure domain generalisation.
-
-# 7. Talking points for the presentation
-
-1. **Headline:** ResNet all reaches F1 0.766 on the unseen scanner, 0.093 above the baseline, and the gain is statistically significant.
-2. **What works best:** stain augmentation, and AdaBN + TTA at test time.
-3. **Interesting finding:** training add-ons look strong as trained, but most of their gain disappears once test-time adaptation is added. In the end, all and + Stain + GRL cannot be told apart.
-4. **Rigour:**
-   - The protocol was written before training.
-   - The 6 tests are Holm-adjusted.
-   - Every configuration has 5 seeds.
-   - Thresholds use source data only.
-
-# 8. Limitations
-
-- **Small sample:** only 3 scanners with 50 cases each, so the confidence intervals are fairly wide.
-- **Single source:** all slides come from one hospital, and scanner is the only variable that changes. Whether the results transfer to other hospitals is unknown.
-- **Different task:** this is candidate classification, not a full detection pipeline. Its F1 is not directly comparable with the official MIDOG detection F1 (0.718).
-- **Exploratory results:** every comparison outside the 6 pre-registered tests is exploratory and reported with unadjusted CIs.
 
 Code, results tables and figures are in this folder; see [`README.md`](README.md) for how to reproduce them.
