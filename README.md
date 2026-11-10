@@ -1,8 +1,9 @@
-# General Mitosis Detection Across Scanners
+# Scanner and Stain Robustness in Digital Pathology
 
-This repository contains a study of scanner-robust mitosis analysis in
-histopathology images. The project uses the MIDOG++ breast-cancer data to investigate how
-stain variation and scanner domain shift affect mitotic-figure models.
+This repository studies domain shift in digital pathology: how variation in slide staining,
+laboratory preparation, and image scanners affects model performance. Mitotic-figure
+analysis on the MIDOG++ breast-cancer data is used as a focused case study because it permits
+controlled comparison across multiple scanner domains.
 
 The work covers two related tasks:
 
@@ -15,16 +16,30 @@ that candidate locations are already known, while object detection must also fin
 
 ## Problem
 
-Mitotic figures are important indicators of tumor activity, but they are small, visually
-variable, and easily confused with non-mitotic cells. Models trained with images from one
-scanner can also learn scanner-specific color and acquisition patterns. Their performance
-may therefore decline when slides come from a scanner that was not represented during
-training.
+Digital pathology images are not produced under one standardized visual condition. Their
+appearance can vary with tissue fixation and sectioning, staining reagents and timing,
+laboratory protocols, scanner optics and sensors, image-processing pipelines, resolution,
+and compression. These factors can change color, contrast, texture, and apparent morphology
+even when the underlying tissue biology is similar.
+
+Machine-learning models can learn these domain-specific appearance cues instead of relying
+only on pathology-relevant structure. A model that performs well on data from its training
+laboratories or scanners may therefore lose accuracy, shift its precision-recall balance,
+or fail unpredictably on a new domain. In these experiments, performance differs across
+held-out scanners, and scanner identity remains highly recoverable from learned features.
+Within this dataset, that evidence shows that stain and scanner variability are not merely
+cosmetic differences; they can materially affect model behavior.
+
+Mitotic-figure analysis provides a demanding test of this broader problem. Mitotic figures
+are small, morphologically variable, and easily confused with non-mitotic cells, so useful
+biological detail must be preserved while nuisance variation from staining and scanning is
+reduced.
 
 The central question is:
 
-> Which training and adaptation methods improve mitosis recognition on an unseen scanner,
-> and do improvements on cropped candidate patches transfer to object detection?
+> Which preprocessing, training, and adaptation methods make digital-pathology models more
+> robust to stain and scanner shifts while preserving clinically relevant morphology, and do
+> improvements on cropped patches transfer to object detection?
 
 The experiments focus on three breast-cancer scanner domains: Aperio CS2, Hamamatsu S360,
 and Hamamatsu XR. Leave-one-scanner-out (LOSO) evaluation trains on two domains and evaluates
