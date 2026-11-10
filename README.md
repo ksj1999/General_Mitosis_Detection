@@ -16,6 +16,11 @@ This repository contains the databases with all mitotic figure annotations of th
 - The [slide/](slide/) folder contains data loaders for working with whole slide images (WSIs).
 - The [images/](images/) folder is empty in the repository, but will be filled by running [Setup.ipynb](Setup.ipynb).
 
+### Team contributions
+
+- [aaron_model/](aaron_model/) contains Aaron's ResNet-18 stain-augmentation and adaptation experiments.
+- [jun_model/](jun_model/) contains Jun's detection, foundation-model, LoRA, and scanner-generalization experiments.
+
 ### Getting started
 
 All requirements needed to run the scripts in this repository can be installed using pip:

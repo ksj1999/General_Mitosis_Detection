@@ -138,19 +138,19 @@ dmypy.json
 # Downloaded pathology data
 images/*
 !images/.gitkeep
-breast_cancer_subset/images/
+jun_model/breast_cancer_subset/images/
 
 # Demo 1 generated artifacts
-demo1/detection_coco/
-demo1/detection_tiles/
-demo1/models/
-demo1/outputs/
-demo1/patch_dataset/
-demo1/patch_dataset_all/
+jun_model/demo1/detection_coco/
+jun_model/demo1/detection_tiles/
+jun_model/demo1/models/
+jun_model/demo1/outputs/
+jun_model/demo1/patch_dataset/
+jun_model/demo1/patch_dataset_all/
 
 # Demo 2 generated model artifacts
-demo2/.hf_cache/
-demo2/cache/
-demo2/logs/
-demo2/models/
-demo2/patches/
+jun_model/demo2/.hf_cache/
+jun_model/demo2/cache/
+jun_model/demo2/logs/
+jun_model/demo2/models/
+jun_model/demo2/patches/
