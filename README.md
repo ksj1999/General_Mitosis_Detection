@@ -1,6 +1,6 @@
 # General Mitosis Detection Across Scanners
 
-This repository contains a collaborative study of scanner-robust mitosis analysis in
+This repository contains a study of scanner-robust mitosis analysis in
 histopathology images. The project uses the MIDOG++ breast-cancer data to investigate how
 stain variation and scanner domain shift affect mitotic-figure models.
 
@@ -32,7 +32,7 @@ on the third, rotating the held-out scanner across three folds.
 
 ## Approach
 
-The team studies the problem at increasing levels of complexity:
+The project studies the problem at increasing levels of complexity:
 
 1. **Patch and candidate baselines:** measure scanner shift using cropped mitotic and
    non-mitotic candidates.
@@ -55,20 +55,20 @@ protocols. Multiple seeds and image-level bootstrap intervals are used where ava
 
 ### Candidate classification
 
-| Study | Method | Main result | Interpretation |
+| Experiment | Method | Main result | Interpretation |
 |---|---|---:|---|
-| Aaron, locked 3-fold x 5-seed study | ResNet-18 baseline, as trained | F1 0.673 | Reference candidate classifier |
-| Aaron, locked 3-fold x 5-seed study | Stain + GRL + soft labels, as trained | F1 0.733 | Training add-ons improved F1 by 0.060 |
-| Aaron, locked 3-fold x 5-seed study | Full method with AdaBN + TTA | F1 0.766, 95% CI 0.740-0.786 | Stain augmentation and TTA had statistically supported contributions |
-| Jun, post-hoc held-out evaluation | Virchow2 LoRA | F1 0.8062, PR-AUC 0.8765 | Strong transfer from source validation to held-out scanners |
-| Jun, post-hoc held-out evaluation | Virchow2 LoRA + stain + GRL | F1 0.8073, PR-AUC 0.8792 | Only +0.0010 F1 over LoRA; no meaningful held-out gain |
+| Locked 3-fold x 5-seed ResNet-18 | Baseline, as trained | F1 0.673 | Reference candidate classifier |
+| Locked 3-fold x 5-seed ResNet-18 | Stain + GRL + soft labels, as trained | F1 0.733 | Training add-ons improved F1 by 0.060 |
+| Locked 3-fold x 5-seed ResNet-18 | Full method with AdaBN + TTA | F1 0.766, 95% CI 0.740-0.786 | Stain augmentation and TTA had statistically supported contributions |
+| Post-hoc held-out foundation model | Virchow2 LoRA | F1 0.8062, PR-AUC 0.8765 | Strong transfer from source validation to held-out scanners |
+| Post-hoc held-out foundation model | Virchow2 LoRA + stain + GRL | F1 0.8073, PR-AUC 0.8792 | Only +0.0010 F1 over LoRA; no meaningful held-out gain |
 
-Aaron's full method reached precision 0.729, recall 0.820, and AUROC 0.898 with AdaBN +
+The full ResNet-18 method reached precision 0.729, recall 0.820, and AUROC 0.898 with AdaBN +
 TTA. The confirmatory ablation attributed `+0.024` F1 to stain augmentation and `+0.015`
 F1 to TTA after multiplicity correction. GRL and soft labels had smaller, statistically
 uncertain contributions under that inference setting.
 
-Jun's LoRA results are post-hoc because earlier held-out results were visible during model
+The LoRA results are post-hoc because earlier held-out results were visible during model
 development. They should not be treated as an untouched confirmatory test or directly used
 to claim improvement over the earlier frozen Virchow2 held-out F1 of 0.707. An independent
 scanner probe achieved approximately 1.0 balanced accuracy on frozen, LoRA, and combined
@@ -95,41 +95,18 @@ seeded training, but the locked detection experiment still needs to be rerun.
   reliably improve the exploratory object detector.
 - TTA and target-aware AdaBN produced substantial candidate-classification gains, although
   AdaBN changes the setting from pure domain generalization to test-time adaptation.
-- Virchow2 with LoRA is Jun's strongest current candidate-classification approach.
+- Virchow2 with LoRA is the strongest current foundation-model candidate classifier.
 - Adding stain augmentation and weak GRL to Virchow2 LoRA did not materially improve
   held-out performance or scanner invariance.
 - Candidate classification is only one stage of a clinical detection workflow. The next
   evidence needed is a locked, exhaustively tiled detection study followed by evaluation on
   genuinely external pathology data.
 
-## Team contributions
-
-### Aaron
-
-[`aaron_model/`](aaron_model/) contains ResNet-18 candidate-classification experiments,
-including stain augmentation, scanner-adversarial learning with a gradient-reversal layer
-(GRL), soft labels, test-time augmentation (TTA), and adaptive batch normalization (AdaBN).
-
-- [Methods and usage](aaron_model/README.md)
-- [Results](aaron_model/RESULTS.md)
-- [Experiment protocol](aaron_model/ADDONS_PROTOCOL.md)
-
-### Jun
-
-[`jun_model/`](jun_model/) contains classical baselines, Faster R-CNN detection experiments,
-foundation-model linear probing and LoRA, stain augmentation, GRL experiments, and reusable
-scanner-generalization workflows.
-
-- [Contribution overview](jun_model/README.md)
-- [Demo 1: patch baselines and object detection](jun_model/demo1/README.md)
-- [Demo 2: foundation-model candidate classification](jun_model/demo2/README.md)
-- [Demo 2 detailed report](jun_model/demo2/reports/demo2_detailed_summary.md)
-
 ## Repository layout
 
 ```text
-aaron_model/       Aaron's experiments, reports, and reproducibility scripts
-jun_model/         Jun's experiments, reports, prepared metadata, and workflows
+aaron_model/       ResNet-18 candidate classification and adaptation experiments
+jun_model/         Patch baselines, detection, foundation models, and reusable workflows
 midogpp/           Upstream MIDOG++ dataset infrastructure and original model code
   configs/         Original training configuration
   databases/       COCO JSON and SlideRunner SQLite annotations
@@ -141,7 +118,7 @@ midogpp/           Upstream MIDOG++ dataset infrastructure and original model co
 ```
 
 Generated images, patches, embeddings, checkpoints, logs, and model weights are excluded
-from Git. Each contribution directory documents how to recreate the artifacts it uses.
+from Git. Each experiment directory documents how to recreate the artifacts it uses.
 
 ## How to run each directory
 
@@ -173,8 +150,8 @@ after configuring [`midogpp/configs/all.yaml`](midogpp/configs/all.yaml).
 
 ### `aaron_model/`: ResNet-18 candidate classification
 
-Aaron's commands use paths relative to `aaron_model/`, so enter that directory first and
-create its own environment:
+Commands in this directory use paths relative to `aaron_model/`, so enter that directory
+first and create its own environment:
 
 ```powershell
 Set-Location aaron_model
@@ -189,7 +166,7 @@ $DATA_DIR = "D:\path\to\midogpp_breast"
 
 The exact phase pipelines, evaluation commands, and statistics commands are documented in
 [`aaron_model/README.md`](aaron_model/README.md). Return to the repository root with
-`Set-Location ..` before running Jun's commands.
+`Set-Location ..` before running the remaining commands.
 
 ### `jun_model/demo1/`: patch baselines and Faster R-CNN
 
@@ -245,7 +222,7 @@ locked configurations, held-out evaluation, scanner probes, and all ablation com
 ### `jun_model/mitosis_scanner_workflow/`: reusable orchestration
 
 This directory packages the normalization, augmentation, and detection stages for reuse by
-other collaborators. Validate its configuration before a run:
+other workflows. Validate its configuration before a run:
 
 ```powershell
 .\.venv-det\Scripts\python.exe jun_model\mitosis_scanner_workflow\run_workflow.py validate
