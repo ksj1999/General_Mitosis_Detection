@@ -136,8 +136,8 @@ dmypy.json
 .vscode/
 
 # Downloaded pathology data
-images/*
-!images/.gitkeep
+midogpp/images/*
+!midogpp/images/.gitkeep
 jun_model/breast_cancer_subset/images/
 
 # Demo 1 generated artifacts
