@@ -1,0 +1,41 @@
+{
+  "protocol_version": "demo2-linear-probe-v1",
+  "locked_at": "2026-11-09",
+  "model_id": "paige-ai/Virchow2",
+  "model_revision": "3158645804b69e3f3bc4439d4116edddf0840a72",
+  "pooling": "cls_plus_mean_patch_skip_4_registers",
+  "feature_dimension": 2560,
+  "scale": "40x",
+  "target_mpp": 0.25,
+  "input_size": 224,
+  "physical_field_of_view_um": 56.0,
+  "class_weight": "balanced",
+  "solver": "lbfgs",
+  "max_iter": 3000,
+  "seed": 42,
+  "ambiguous_negative_policy": "retain_and_flag",
+  "edge_policy": "retain_center_and_white_pad",
+  "folds": {
+    "aperio_cs2": {
+      "c": 0.01,
+      "threshold": 0.3
+    },
+    "hamamatsu_s360": {
+      "c": 0.01,
+      "threshold": 0.45
+    },
+    "hamammatsu_xr": {
+      "c": 0.01,
+      "threshold": 0.45
+    }
+  },
+  "selection": {
+    "data": "source-scanner validation images only",
+    "scale_policy": "40x locked by the Phikon-v2 source-validation pilot before three-model comparison",
+    "mean_validation_precision_40x": 0.6942912978793601,
+    "mean_validation_recall_40x": 0.7915604809763103,
+    "mean_validation_f1_40x": 0.738388574681899,
+    "mean_validation_pr_auc_40x": 0.7768623635455567,
+    "held_out_test_seen_during_selection": false
+  }
+}

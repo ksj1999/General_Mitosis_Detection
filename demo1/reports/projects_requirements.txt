@@ -1,0 +1,336 @@
+C S E 4109 Projects
+
+Why is AI important to healthcare?
+Machine learning is leading a potential revolution in healthcare:
+•
+•
+•
+•
+
+Early disease detection
+Predictive analytics for patient outcomes
+Personalized treatments
+Decision support for healthcare workers
+
+Sources: Bajwa, Junaid et al. “Artificial intelligence in healthcare:
+transforming the practice of medicine.” Future healthcare journal
+
+A Research-Oriented Class on A I f o r H e a l t h
+Ø Projects 60%
+q Proposal and presentation: 10%
+q Demo I: 5%
+q Demo II: 5%
+q Final report and demo: 40%
+
+Ø Critiques 35%
+Ø Participation 5%
+
+•
+•
+
+Mini research experience on AIM
+Interdisciplinary: co-taught by
+researchers from CS and medicine
+
+3
+
+Project
+Ø Three students per team
+q Need permission for a smaller team.
+
+Ø Develop/integrate your own research ideas
+Ø Perform experiments on real-world healthcare dataset
+Ø Write a paper
+Ø Demos
+
+4
+
+Steps
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+
+Pick your interested direction
+Form a team
+Propose a research topic
+Analyze and Implement your solution
+Evaluate your solution
+Demo 1, 2 and Final Demo
+Write a technical report
+Submit peer-evaluation
+
+5
+
+Get Started Early
+Ø Think about topics and ideas
+Ø Talk to TA and instructor.
+Ø Put together a team
+Ø A lot of work (and fun) throughout the semester!
+
+6
+
+Teaming
+Ø Everyone should be in a three-member team
+q Unless you receive special approval from TA for a different size
+
+Ø Use Canvas Discussion to “Search for Teammates”
+Ø Join one group on Canvas > People > Groups.
+Ø We will help make sure everyone has a team.
+
+7
+
+Proposal Presentation
+Ø In class on 09/08
+Ø 4 min per group
+q 3-min talk + 1-min Q&A
+q 4 slides
+q Rehearse in advance
+
+Ø Your elevator pitch!
+Ø Email TA your slides before class
+
+8
+
+Written Proposal
+Ø One proposal/team, one page
+q Team members
+q Concise description of project
+q Responsibilities of each member
+q Equipment needed
+q NeurIPS format
+
+Ø Written proposal due: 09/08
+
+9
+
+Demo I&II
+Demo I
+
+Demo II
+
+Ø In class on 10/13 and 10/15.
+
+Ø In class on 11/10 and 11/12.
+
+Ø ~8 min per team.
+
+Ø ~8 min per team.
+
+Ø Must show something real.
+
+Ø Substantial progress à final demo.
+
+10
+
+Final Demo
+Ø Preparation & Discussion: in class on 12/1
+Ø Final demo: in class on 12/3 (1pm - 3:20pm).
+q ~10 min per team.
+
+Ø All expected to attend the entire session. It’ll be fun!
+
+11
+
+Demo Logistics
+Ø For fairness, we will set a time stop for each team.
+Ø In case you have any travel plans/classes and need to present on a specific day,
+please write an email at least two weeks in advance to TAs so we can
+accommodate with the schedule.
+
+12
+
+Final Report
+Ø Submit by 12/10, 11:59pm
+Ø Report
+q Required to be in the NeurIPS format
+q 6 pages, single column, 10 pts font
+q Required to use the LaTeX template
+q Specific details about the process of implementing your project and any
+
+references/explanations for underlying ideas.
+q Must acknowledge any generative AI usage in your project.
+
+Ø Materials
+q Slides of your final presentation
+q Source code
+q Documentation: README/INSTALL or reStructuredText/Sphinx
+13
+
+Suggested Outline
+Ø Abstract
+Ø Introduction
+Ø Related Work
+Ø Methods
+Ø Experiments
+Ø Lessons Learned
+Ø Conclusion and Future Work
+
+14
+
+Peer Review
+Ø For fairness in team projects.
+q Send an individual email (not a team) to both TAs on 12/10
+q Percentage of contributions of each team member.
+q Brief justification.
+q Final project grades will be adjusted based on the peer review
+
+15
+
+Participation
+Ø Sign the attendance sheet for each lecture
+Ø Accounts for 5% of final grade
+
+16
+
+Logistics
+Ø TAs for projects: Peiqi Gao, Claire Najjuuko
+Ø Email TAs or Professor Lu for appointments to discuss ideas
+Ø All work will be submitted on Canvas
+
+17
+
+Logistics
+Ø Guidelines and slides are on the class homepage.
+q https://www.cs.wustl.edu/~lu/cse4109/
+
+Ø Communication will be through Canvas Discussion.
+q E.g., search for teammates
+
+18
+
+Medical Information Mart for Intensive Care III (MIMIC-III)
+Ø Large, freely available database comprising de-identified health-related data
+Ø 40,000 patients who stayed in critical care units
+
++
+
++
+Static Data
+Demographic
+Medication history
+…
+
+Time-series Data
+
+Text Data
+
+Vital signs
+Laboratory measurements
+…
+
+Notes from caregivers
+Diagnostic Reports
+…
+
+Johnson, Alistair E W et al. “MIMIC-III, a freely accessible critical care database.” Scientific data vol. 3 160035. 24 May.
+1
+9
+
+MIMIC-III Potential Research Topics
+Four example outcomes:
+Ø Mortality (binary classification)
+Ø Real-time detection of decompensation (time series classification)
+Ø Length of stay (regression)
+Ø Phenotype classification (multilabel classification)
+
+20
+
+MIMIC-III Access
+• Create an account on PhysioNet using the following link:
+https://physionet.org/register/ with institutional email (…@wustl.edu)
+• Go to https://physionet.org/content/mimiciii/1.4/ and complete the
+application process located in the bottom of the page
+
+21
+
+MIMIC-III Access
+• Be a credentialed user:
+• Fill out all required information
+• Reference: Chenyang Lu, lu@wustl.edu, Fullgraf Professor, Computer
+Science and Engineering Department
+•
+•
+•
+•
+•
+
+Project description:
+Student in CSE4109A AI for Health at WUSTL for Fall 2026
+Describe your project ideas, interested research directions
+Don’t be too general
+Each student must apply for individual access, even if you are in a
+group
+
+22
+
+MIMIC-III Access
+•
+•
+•
+•
+
+Complete the required training:
+PhysioNet requires the CITI Data or Specimens Only Course.
+Follow the instructions here:
+https://physionet.org/about/citi-course/
+
+• Will take a few hours to complete, possibly less if you completed
+another CITI course.
+• Submit the report in your account and wait for approval
+
+23
+
+MIMIC-III Access
+• Sign the data use agreement for the project:
+• https://physionet.org/sign-dua/mimiciii/1.4/
+
+24
+
+MIMIC-III Structure
+• Consists of data from 40,000 ICU patients at Beth Israel Deaconess in Boston.
+• Full dataset is available once you complete the training.
+• A demo set with 100 patients is also freely available:
+https://physionet.org/content/mimiciii-demo/1.4/
+• Data is organized as as series of CSVs:
+• Rows are connected via identifiers ending in the _ID suffix: SUBJECT_ID,
+HADM_ID, ICUSTAY_ID, ROW_ID, and ITEM_ID.
+• Tables ending in EVENTS are charted event files.
+• Tables with the prefix D_ are dictionary files that give definitions for
+identifiers.
+• Patient stays are primarily characterized by ADMISSIONS, PATIENTS,
+ICUSTAYS, SERVICES, and TRANSFERS.
+25
+
+Some other potential ideas
+• Medical Imaging project:
+• E.g., Pathology project on an open-source dataset.
+• TCGA: is a large-scale public dataset that provides genomic, clinical,
+and digital pathology data across more than 30 cancer types.
+• https://www.cancer.gov/ccg/research/genome-sequencing/tcga
+
+Some other potential ideas
+• Healthcare Chatbot.
+•
+
+https://dcapswoz.ict.usc.edu/ (Virtual agent interview)
+
+Recommended Tools
+• A list of recommended tools:
+• Traditional ML: scikit-learn, XGBoost, CatBoost
+• Deep Learning: PyTorch, PyTorch Lightning
+• Data: Polars, PyArrow/Parquet, Hugging Face datasets
+• Evaluation: TorchMetrics or TorchEval, SHAP
+• Transformer Models: Hugging Face transformers
+• Visualization: Gradio, Streamlit, Seaborn/Matplotlib
+• Tools: PDB, PyCharm, Hydra, rootutils, TensorBoard, Black
+• We encourage you to experiment with other tools as you see fit.
+• Please do not use OpenAI APIs and external third-party tools, as they violate
+the PhysioNet DUA (https://physionet.org/news/post/gpt-responsible-use).
+28
+
+

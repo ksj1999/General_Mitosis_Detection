@@ -1,0 +1,38 @@
+{
+  "protocol_version": "demo2-linear-probe-v1",
+  "locked_at": "2026-11-09",
+  "model_id": "owkin/phikon-v2",
+  "pooling": "pooler_output",
+  "scale": "40x",
+  "target_mpp": 0.25,
+  "input_size": 224,
+  "physical_field_of_view_um": 56.0,
+  "class_weight": "balanced",
+  "solver": "lbfgs",
+  "max_iter": 3000,
+  "seed": 42,
+  "ambiguous_negative_policy": "retain_and_flag",
+  "edge_policy": "retain_center_and_white_pad",
+  "folds": {
+    "aperio_cs2": {
+      "c": 0.01,
+      "threshold": 0.35
+    },
+    "hamamatsu_s360": {
+      "c": 0.01,
+      "threshold": 0.35
+    },
+    "hamammatsu_xr": {
+      "c": 0.01,
+      "threshold": 0.4
+    }
+  },
+  "selection": {
+    "data": "source-scanner validation images only",
+    "mean_validation_f1_20x": 0.5832161529088817,
+    "mean_validation_f1_40x": 0.67262127109556,
+    "mean_validation_pr_auc_20x": 0.5474531537467219,
+    "mean_validation_pr_auc_40x": 0.6599597338126393,
+    "held_out_test_seen_during_selection": false
+  }
+}

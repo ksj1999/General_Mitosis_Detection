@@ -1,0 +1,15 @@
+# Generated experiment artifacts
+artifacts/
+
+# Local datasets and model weights must not be committed
+data/
+*.pt
+*.pth
+*.ckpt
+*.tif
+*.tiff
+
+# Python caches
+__pycache__/
+*.py[cod]
+

@@ -1,0 +1,35 @@
+{
+  "phikon_v2": {
+    "display_name": "Phikon-v2",
+    "repository": "owkin/phikon-v2",
+    "backend": "transformers",
+    "trust_remote_code": false,
+    "pooling": "pooler_output",
+    "expected_feature_dimension": 1024,
+    "access": "public",
+    "license": "Phikon-v2 non-commercial license",
+    "default_batch_size": 16
+  },
+  "hibou_b": {
+    "display_name": "Hibou-B",
+    "repository": "histai/hibou-b",
+    "backend": "transformers",
+    "trust_remote_code": true,
+    "pooling": "pooler_or_cls",
+    "expected_feature_dimension": 768,
+    "access": "gated_click_through",
+    "license": "Apache-2.0",
+    "default_batch_size": 32
+  },
+  "virchow2": {
+    "display_name": "Virchow2",
+    "repository": "paige-ai/Virchow2",
+    "backend": "timm_virchow2",
+    "trust_remote_code": false,
+    "pooling": "cls_plus_mean_patch_skip_4_registers",
+    "expected_feature_dimension": 2560,
+    "access": "gated_institutional",
+    "license": "CC-BY-NC-ND-4.0",
+    "default_batch_size": 8
+  }
+}

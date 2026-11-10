@@ -1,0 +1,36 @@
+{
+  "images": 150,
+  "candidates": 4435,
+  "labels": {
+    "non_mitotic": 2714,
+    "mitotic": 1721
+  },
+  "scanners": {
+    "Hamammatsu XR": 50,
+    "Hamamatsu S360": 50,
+    "Aperio CS2": 50
+  },
+  "duplicate_exact_annotation_groups": 0,
+  "bbox_outside_image": 48,
+  "ambiguous_negative_20x": 346,
+  "ambiguous_negative_40x": 73,
+  "edge_candidates_20x": 572,
+  "edge_candidates_40x": 261,
+  "mpp_by_scanner": {
+    "Aperio CS2": {
+      "min": 0.253301,
+      "max": 0.253301,
+      "mean": 0.2533010000000003
+    },
+    "Hamamatsu S360": {
+      "min": 0.229848,
+      "max": 0.229848,
+      "mean": 0.22984800000000002
+    },
+    "Hamammatsu XR": {
+      "min": 0.226317,
+      "max": 0.227444,
+      "mean": 0.22675858000000013
+    }
+  }
+}

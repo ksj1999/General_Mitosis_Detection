@@ -1,0 +1,7 @@
+# Install a PyTorch build appropriate for the local CPU/CUDA environment first.
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+Pillow>=9.4
+tqdm>=4.64
+

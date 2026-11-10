@@ -1,0 +1,41 @@
+{
+  "protocol_version": "demo2-linear-probe-v1",
+  "locked_at": "2026-11-09",
+  "model_id": "histai/hibou-b",
+  "model_revision": "7fdc8cce365ebfd9e7e60ee6ee9a8d4d59388f3c",
+  "pooling": "pooler_or_cls",
+  "feature_dimension": 768,
+  "scale": "40x",
+  "target_mpp": 0.25,
+  "input_size": 224,
+  "physical_field_of_view_um": 56.0,
+  "class_weight": "balanced",
+  "solver": "lbfgs",
+  "max_iter": 3000,
+  "seed": 42,
+  "ambiguous_negative_policy": "retain_and_flag",
+  "edge_policy": "retain_center_and_white_pad",
+  "folds": {
+    "aperio_cs2": {
+      "c": 0.01,
+      "threshold": 0.4
+    },
+    "hamamatsu_s360": {
+      "c": 0.1,
+      "threshold": 0.2
+    },
+    "hamammatsu_xr": {
+      "c": 0.1,
+      "threshold": 0.35
+    }
+  },
+  "selection": {
+    "data": "source-scanner validation images only",
+    "scale_policy": "40x locked by the Phikon-v2 source-validation pilot before three-model comparison",
+    "mean_validation_precision_40x": 0.5553446184392056,
+    "mean_validation_recall_40x": 0.7956267096453322,
+    "mean_validation_f1_40x": 0.6537284016912926,
+    "mean_validation_pr_auc_40x": 0.6792503674484345,
+    "held_out_test_seen_during_selection": false
+  }
+}
