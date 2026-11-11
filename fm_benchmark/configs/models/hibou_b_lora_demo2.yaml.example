@@ -1,0 +1,13 @@
+# Hibou-B + LoRA fine-tuned for mitosis classification by jun_model/demo2 (MIDOG++ breast).
+# Copy to hibou_b_lora_demo2.yaml and point checkpoint at a <fold>_seed<k>_adapter.pt written by
+# run_lora_probe_validation.py. The base weights are read from the demo2 Hugging Face cache.
+display_name: Hibou-B + LoRA (demo2, MIDOG++ breast)
+adapter: demo2_lora
+params:
+  checkpoint: jun_model/demo2/models/hibou_b_40x_lora_validation/aperio_cs2_seed0_adapter.pt
+  demo2_dir: jun_model/demo2
+modes: [cls, cls+mean]
+batch_size: 128
+precision: fp16
+trained_on: [midogpp_breast]
+notes: Encoder only (the mitosis head is not used).

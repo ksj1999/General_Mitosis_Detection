@@ -1,0 +1,8 @@
+model,CLS-Only,CLS+Mean,Patch Token Max. Agg.,Patch Token ABMIL
+Virchow2G,80.5,83.6,87.5,86.7
+Virchow2,80.0,80.4,86.4,85.6
+Virchow,76.0,78.7,84.6,84.5
+H-optimus-0,78.1,79.6,87.5,86.8
+GigaPath,78.2,79.4,84.7,84.3
+UNI,74.8,75.9,83.0,83.8
+Phikon,76.9,73.0,80.6,80.3

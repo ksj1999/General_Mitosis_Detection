@@ -1,0 +1,15 @@
+# DINOv2 ViT-g/14 trained on natural images (LVD-142M), open weights.
+# Used as the "NatImg" row of Virchow2 Table 2. The paper does not name its natural-image baseline;
+# DINOv2 ViT-g/14 is our assumption (see NOTES.md), so treat the reproduction check for this row with care.
+display_name: DINOv2 ViT-g/14 (natural images)
+adapter: timm
+params:
+  model: vit_giant_patch14_dinov2.lvd142m
+  timm_kwargs:
+    img_size: 224          # pretrained at 518; timm resamples the position embedding
+  num_prefix_tokens: 1     # CLS only, no registers
+modes: [cls, cls+mean]
+batch_size: 128
+precision: fp16
+trained_on: []
+paper_name: NatImg

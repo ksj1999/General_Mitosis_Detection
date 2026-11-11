@@ -1,0 +1,11 @@
+# Frozen Phikon-v2 (Owkin, DINOv2 ViT-L/16). Not gated: https://huggingface.co/owkin/phikon-v2. Not in the Virchow2 paper.
+display_name: Phikon-v2 (frozen)
+adapter: transformers
+params:
+  model: owkin/phikon-v2
+  num_prefix_tokens: 1
+modes: [cls, cls+mean]
+batch_size: 256
+precision: fp16
+trained_on: [tcga]  # PANCAN-XL includes TCGA: TILS (TCGA) is flagged
+notes: 300M parameters, 20x. Owkin non-commercial licence.

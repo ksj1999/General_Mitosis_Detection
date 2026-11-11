@@ -1,0 +1,14 @@
+# Virchow2 + LoRA (r = 8) fine-tuned for mitosis classification by jun_model/demo2.
+# Copy to virchow2_lora_demo2.yaml and set the checkpoint path. Checkpoints are written by
+# run_lora_probe_validation.py as models/<model>_40x_lora_*/<fold>_seed<k>_adapter.pt.
+# The base Virchow2 weights must be in the demo2 Hugging Face cache (jun_model/demo2/.hf_cache).
+display_name: Virchow2 + LoRA (demo2, MIDOG++ breast)
+adapter: demo2_lora
+params:
+  checkpoint: jun_model/demo2/models/virchow2_40x_lora_validation/aperio_cs2_seed0_adapter.pt
+  demo2_dir: jun_model/demo2
+modes: [cls, cls+mean]
+batch_size: 128
+precision: fp16
+trained_on: [midogpp_breast]
+notes: LoRA on the qkv projections of Virchow2; encoder only (the mitosis head is not used).

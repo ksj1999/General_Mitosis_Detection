@@ -1,0 +1,14 @@
+# Frozen Virchow2 (Paige). Gated: accept the terms at https://huggingface.co/paige-ai/Virchow2
+# and log in with `huggingface-cli login` on the machine that runs the benchmark.
+# This run reproduces the Virchow2 row of the paper tables, which checks the whole pipeline.
+display_name: Virchow2 (frozen)
+adapter: timm
+params:
+  model: hf-hub:paige-ai/Virchow2
+  timm_kwargs: {mlp_layer: SwiGLUPacked, act_layer: SiLU}
+  num_prefix_tokens: 5   # CLS + 4 registers; patch tokens follow
+modes: [cls, cls+mean]
+batch_size: 128
+precision: fp16
+paper_name: Virchow2
+notes: ViT-H/14, 632M parameters, 224 px input at 0.5 um/px (20x) for pretraining; mixed magnification.

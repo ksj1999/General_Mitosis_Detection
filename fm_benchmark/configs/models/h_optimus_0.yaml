@@ -1,0 +1,14 @@
+# Frozen H-optimus-0 (Bioptimus). Gated (automatic): https://huggingface.co/bioptimus/H-optimus-0
+display_name: H-optimus-0 (frozen)
+adapter: timm
+params:
+  model: hf-hub:bioptimus/H-optimus-0
+  timm_kwargs: {init_values: 1.0e-5, dynamic_img_size: false}
+  num_prefix_tokens: 5   # CLS + 4 registers
+  mean: [0.707223, 0.578729, 0.703617]
+  std: [0.211883, 0.230117, 0.177517]
+modes: [cls, cls+mean]
+batch_size: 64
+precision: fp16
+paper_name: H-optimus-0
+notes: ViT-g/14, 1.1B parameters, 20x. Apache-2.0.

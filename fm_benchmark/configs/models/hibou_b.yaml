@@ -1,0 +1,14 @@
+# Frozen Hibou-B (HistAI, DINOv2 ViT-B/14 + 4 registers). Gated (automatic): https://huggingface.co/histai/hibou-b
+# Runs custom modelling code from the Hub (trust_remote_code). Not in the Virchow2 paper.
+display_name: Hibou-B (frozen)
+adapter: transformers
+params:
+  model: histai/hibou-b
+  trust_remote_code: true
+  num_prefix_tokens: 5   # CLS + 4 registers
+  mean: [0.7068, 0.5755, 0.7220]
+  std: [0.1950, 0.2316, 0.1816]
+modes: [cls, cls+mean]
+batch_size: 256
+precision: fp16
+notes: 86M parameters. Apache-2.0.

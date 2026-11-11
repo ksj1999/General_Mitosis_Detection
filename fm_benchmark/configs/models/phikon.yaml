@@ -1,0 +1,12 @@
+# Frozen Phikon (Owkin, iBOT ViT-B/16). Not gated: https://huggingface.co/owkin/phikon
+display_name: Phikon (frozen)
+adapter: transformers
+params:
+  model: owkin/phikon
+  num_prefix_tokens: 1
+modes: [cls, cls+mean]
+batch_size: 256
+precision: fp16
+paper_name: Phikon
+trained_on: [tcga]  # iBOT on TCGA (PanCancer40M): TILS (TCGA) is flagged
+notes: 86M parameters, 20x. Owkin non-commercial licence. Only last_hidden_state is used (not the pooler).

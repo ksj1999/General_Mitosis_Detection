@@ -1,0 +1,16 @@
+# aaron_model ResNet-18 fine-tuned on the MIDOG++ breast subset (scripts/train_patch.py).
+# Copy to resnet18_midog_all.yaml and set the checkpoint path. Checkpoints are saved as
+# aaron_model/checkpoints/<held-out scanner>_<tag>_seed<s>.pt (scanner: XR, S360 or CS2) (state dict of the Net class; the encoder keys
+# start with "encoder."). Pick one fold and seed, or make one config per checkpoint.
+display_name: ResNet-18 MIDOG++ breast (all, CS2 fold, seed 0)
+adapter: torchvision
+params:
+  arch: resnet18
+  weights: none
+  checkpoint: aaron_model/checkpoints/CS2_all_seed0.pt
+  state_dict_prefix: "encoder."
+modes: [pooled]
+batch_size: 256
+precision: fp16
+trained_on: [midogpp_breast]
+notes: Trained on 128 px patches at 0.25 um/px. Benchmark tiles are resized to 224 px like for every other model.

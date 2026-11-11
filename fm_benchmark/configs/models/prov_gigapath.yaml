@@ -1,0 +1,12 @@
+# Frozen Prov-GigaPath tile encoder. Gated (automatic): https://huggingface.co/prov-gigapath/prov-gigapath
+# The model card resizes to 256 and centre-crops 224; here every model gets the same 224 px tile.
+display_name: Prov-GigaPath (frozen)
+adapter: timm
+params:
+  model: hf-hub:prov-gigapath/prov-gigapath
+  num_prefix_tokens: 1
+modes: [cls, cls+mean]
+batch_size: 64
+precision: fp16
+paper_name: Prov-GigaPath
+notes: ViT-g/16, 1.1B parameters, 20x. Apache-2.0. Needs timm>=1.0.3.

@@ -1,0 +1,6 @@
+# Copy to fmbench.local.yaml (git-ignored) to set per-machine locations.
+# Environment variables FMBENCH_DATA / FMBENCH_CACHE / FMBENCH_RESULTS / FMBENCH_MIDOGPP win over this file.
+data_root: /data/fmbench          # raw downloads (~150 GB of archives + HEST 41 GB; see README)
+cache_root: /scratch/fmbench      # prepared tiles + embeddings (~7 GB per ViT-H model)
+# results_root: ./results         # keep inside the repo so runs.jsonl is versioned
+# midogpp_root: /data/midogpp     # existing MIDOG++ copy (images/*.tiff); default <data_root>/midogpp

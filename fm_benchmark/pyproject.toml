@@ -1,0 +1,42 @@
+[project]
+name = "fmbench"
+version = "0.1.0"
+description = "Virchow2 tile benchmark (linear probe + HEST) for any frozen pathology encoder"
+requires-python = "==3.11.*"
+dependencies = [
+    "torch==2.5.1",
+    "torchvision==0.20.1",
+    "numpy>=1.24,<2.3",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "pillow>=10.0",
+    "pyyaml>=6.0",
+    "h5py>=3.9",             # PCam, HEST patches
+    "tifffile>=2023.7",      # MIDOG++ images
+    "imagecodecs>=2024.1.1", # tifffile needs it to decode the LZW-compressed MIDOG++ TIFFs
+    "timm>=1.0.11,<2",       # Virchow, Virchow2, UNI, UNI2-h, H-optimus-0, Prov-GigaPath, CTransPath, DINOv2
+    "transformers>=4.46,<5", # Phikon, Phikon-v2, Hibou-B
+    "huggingface_hub>=0.25,<1",
+    "anndata>=0.10",         # HEST-Benchmark targets
+    "peft==0.13.2",          # only for jun_model/demo2 LoRA checkpoints
+]
+
+[dependency-groups]
+dev = ["pytest>=7.0"]
+
+[tool.uv]
+package = false
+python-preference = "only-managed"
+
+# CUDA 12.4 wheels on Linux (TGI); the default PyPI wheels elsewhere.
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu124", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cu124", marker = "sys_platform == 'linux'" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

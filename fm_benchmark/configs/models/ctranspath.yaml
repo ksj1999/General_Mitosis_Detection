@@ -1,0 +1,15 @@
+# Frozen CTransPath (Swin-T with a convolutional stem), timm port of the original ctranspath.pth weights:
+# https://huggingface.co/1aurent/swin_tiny_patch4_window7_224.CTransPath (not gated). Virchow2 uses the
+# mean of all output tokens for CTransPath, which is the "pooled" mode here.
+display_name: CTransPath (frozen)
+adapter: timm
+params:
+  model: hf-hub:1aurent/swin_tiny_patch4_window7_224.CTransPath
+  timm_kwargs: {embed_layer: CTransPathConvStem}
+  pool: nhwc
+modes: [pooled]
+batch_size: 256
+precision: fp16
+paper_name: CTransPath
+trained_on: [tcga]  # TCGA + PAIP: TILS (TCGA) is flagged
+notes: 28M parameters. GPL-3.0, non-commercial academic use.

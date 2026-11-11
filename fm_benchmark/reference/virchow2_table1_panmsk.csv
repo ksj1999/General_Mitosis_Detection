@@ -1,0 +1,19 @@
+mode,model,PanMSK 20x,PanMSK 10x,PanMSK 5x,Average
+cls+mean,Virchow2G,96.6,97.1,97.5,97.0
+cls+mean,Virchow2,96.4,96.6,96.7,96.6
+cls+mean,Virchow2G Mini,95.0,95.7,96.0,95.6
+cls+mean,Virchow,95.0,94.8,93.3,94.4
+cls+mean,H-optimus-0,95.7,95.3,93.8,95.0
+cls+mean,Prov-GigaPath,94.2,94.8,94.8,94.6
+cls+mean,UNI,94.4,94.8,93.8,94.3
+cls+mean,Phikon,92.4,92.6,90.8,91.9
+mean,CTransPath,89.7,92.7,93.3,91.9
+cls,Virchow2G,96.6,97.2,97.5,97.1
+cls,Virchow2,96.4,96.7,96.8,96.6
+cls,Virchow2G Mini,95.1,96.1,96.3,95.8
+cls,Virchow,95.0,94.9,92.4,94.1
+cls,H-optimus-0,95.2,94.7,93.4,94.4
+cls,Prov-GigaPath,94.0,94.7,94.4,94.4
+cls,UNI,94.3,95.0,93.6,94.3
+cls,Phikon,92.3,92.6,90.1,91.7
+cls,NatImg,88.3,90.0,91.8,90.0

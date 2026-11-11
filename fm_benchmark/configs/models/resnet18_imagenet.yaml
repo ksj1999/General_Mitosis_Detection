@@ -1,0 +1,10 @@
+# ImageNet ResNet-18 (torchvision weights). A natural-image baseline, and the starting point
+# of the aaron_model ResNet-18 study, so it shows what the MIDOG++ fine-tuning changed.
+display_name: ResNet-18 ImageNet
+adapter: torchvision
+params:
+  arch: resnet18
+  weights: imagenet
+modes: [pooled]
+batch_size: 256
+precision: fp16

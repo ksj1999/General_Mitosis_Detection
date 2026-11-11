@@ -1,0 +1,9 @@
+# raw downloads, prepared tiles and embedding caches (large; per machine)
+data/
+cache/
+# per-run prediction files; runs.jsonl and the leaderboard stay in git
+results/predictions/
+fmbench.local.yaml
+__pycache__/
+.pytest_cache/
+.venv/

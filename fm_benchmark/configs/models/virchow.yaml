@@ -1,0 +1,12 @@
+# Frozen Virchow (v1, Paige). Gated: accept the terms at https://huggingface.co/paige-ai/Virchow.
+display_name: Virchow (frozen)
+adapter: timm
+params:
+  model: hf-hub:paige-ai/Virchow
+  timm_kwargs: {mlp_layer: SwiGLUPacked, act_layer: SiLU}
+  num_prefix_tokens: 1   # CLS only, no registers
+modes: [cls, cls+mean]
+batch_size: 128
+precision: fp16
+paper_name: Virchow
+notes: ViT-H/14, 632M parameters, 20x. Apache-2.0 with extra terms.
